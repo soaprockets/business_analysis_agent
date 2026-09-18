@@ -4,23 +4,31 @@
 #
 # 用法：
 #   ./run_pipeline.sh
-#   ./run_pipeline.sh --trace
+#   ./run_pipeline.sh --no-trace
 #   ./run_pipeline.sh --search-backend mock
 #   ./run_pipeline.sh --search-backend duckduckgo --max-results 5
 #   ./run_pipeline.sh --own-product "CloudFlow CRM"
+#
+# 默认启用 --trace，每个 Agent 的中间输出会写入 output/{kb_id}_trace.md。
 
 set -e
 
 OUTPUT_DIR="output"
-OWN_PRODUCT="火山引擎Agent Plan"
+# 必须与文档中的产品名称一致，否则无法标记为自有产品
+OWN_PRODUCT="方舟 Agent Plan"
 SEARCH_BACKEND="tavily"
 MAX_RESULTS=5
-TRACE=""
+# 默认开启 Agent 中间产物跟踪
+TRACE="--trace"
 
 while [[ $# -gt 0 ]]; do
   case $1 in
     --trace)
       TRACE="--trace"
+      shift
+      ;;
+    --no-trace)
+      TRACE=""
       shift
       ;;
     --search-backend)
@@ -41,7 +49,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     *)
       echo "未知参数: $1" >&2
-      echo "用法: $0 [--trace] [--search-backend mock|duckduckgo|tavily] [--max-results N] [--own-product NAME] [--output-dir DIR]" >&2
+      echo "用法: $0 [--trace] [--no-trace] [--search-backend mock|duckduckgo|tavily] [--max-results N] [--own-product NAME] [--output-dir DIR]" >&2
       exit 1
       ;;
   esac

@@ -110,10 +110,12 @@ cp .env.example .env
 2. 使用 Tavily 搜索补充知识库（必须运行）。
 3. 运行分析并生成最终报告。
 
+**默认启用 `--trace`**，每个 Agent 的中间产物会写入 `output/{kb_id}_trace.md`。
+
 常用参数：
 
 ```bash
-./run_pipeline.sh --trace
+./run_pipeline.sh --no-trace            # 关闭中间产物跟踪
 ./run_pipeline.sh --search-backend duckduckgo --max-results 5
 ./run_pipeline.sh --own-product "方舟 Agent Plan"
 ```
