@@ -1,0 +1,69 @@
+{
+  "report_id": "rep_0dc8e513",
+  "created_at": "2026-09-18T07:24:07.011544",
+  "title": "CRM 竞品分析报告",
+  "executive_summary": "CloudFlow CRM 在中小企业市场具备易用性和性价比优势，但在功能深度、数据分析和大客户支持方面落后于 SalesMax Pro。",
+  "market_overview": "CRM 市场呈现明显分层：中小企业看重易用与性价比，大型企业看重功能深度与私有化部署。",
+  "product_positions": [
+    {
+      "product_id": "p_cloudflow",
+      "product_name": "CloudFlow CRM",
+      "positioning": "面向中小企业的轻量化 CRM，强调易用和国产集成",
+      "key_strengths": [
+        "上手简单",
+        "移动端体验好",
+        "与国产办公工具集成"
+      ],
+      "key_weaknesses": [
+        "数据分析弱",
+        "大客户定制有限",
+        "无私有化部署"
+      ]
+    },
+    {
+      "product_id": "p_salesmax",
+      "product_name": "SalesMax Pro",
+      "positioning": "面向中大型企业的企业级销售管理平台",
+      "key_strengths": [
+        "功能全面",
+        "BI 能力强",
+        "支持私有化"
+      ],
+      "key_weaknesses": [
+        "价格高",
+        "实施周期长",
+        "学习曲线陡峭"
+      ]
+    }
+  ],
+  "key_findings": [
+    {
+      "finding_id": "f_001",
+      "title": "市场分层明显",
+      "detail": "两个产品分别占据中小企业和大型企业市场，定位差异显著",
+      "evidence": [
+        "CloudFlow 面向年营收5000万以下",
+        "SalesMax 面向年营收1亿以上"
+      ],
+      "related_product_ids": [
+        "p_cloudflow",
+        "p_salesmax"
+      ],
+      "related_dimension_ids": [
+        "cd_position"
+      ]
+    }
+  ],
+  "swot_summary": "优势：CloudFlow CRM 上手简单、移动端体验好\n劣势：CloudFlow CRM 数据分析能力弱、大客户定制有限\n机会：AI 辅助销售预测将成为重点竞争方向\n威胁：SalesMax Pro 在大型企业市场竞争力强",
+  "gap_summary": "- [high] CloudFlow CRM 数据分析能力弱于 SalesMax Pro\n- [medium] CloudFlow CRM 不支持私有化部署",
+  "strategic_recommendations": [
+    "增强 BI 与数据分析能力：增加自定义报表和预测仪表盘，缩小与 SalesMax Pro 的差距",
+    "探索私有化部署方案：推出专属部署版本满足合规需求"
+  ],
+  "risk_and_conflicts": "主要信息来自单篇示例文档，SalesMax Pro 价格为行业信息，需进一步核实。",
+  "next_steps": [
+    "调研大客户的 BI 需求优先级",
+    "评估私有化部署成本"
+  ],
+  "full_markdown": "# CRM 竞品分析报告\n\n## 执行摘要\nCloudFlow CRM 在中小企业市场具备易用性和性价比优势..."
+}

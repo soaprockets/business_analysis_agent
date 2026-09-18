@@ -1,0 +1,796 @@
+{
+  "knowledge_base_id": "kb_e2e_mock",
+  "created_at": "2026-09-18T07:24:07.010586",
+  "updated_at": "2026-09-18T07:24:07.010586",
+  "source_documents": [
+    {
+      "doc_id": "doc_596554e2",
+      "file_name": "sample_competitive_materials.md",
+      "file_type": ".md",
+      "uploaded_at": "2026-09-18T07:24:07.010652"
+    }
+  ],
+  "analyzed_products": [
+    "CloudFlow CRM",
+    "SalesMax Pro"
+  ],
+  "products": [
+    {
+      "product_id": "p_cloudflow",
+      "product_name": "CloudFlow CRM",
+      "company_name": "云动科技",
+      "summary": {
+        "item_id": "i_s1",
+        "content": "云动科技于 2022 年推出的面向中小企业的客户关系管理工具，核心价值主张是让销售团队少填表、多成单。",
+        "source_refs": [
+          {
+            "doc_id": "doc_0",
+            "file_name": "sample_competitive_materials.md"
+          }
+        ],
+        "status": "confirmed",
+        "confidence": "high",
+        "added_by": "expert_agent",
+        "added_at": "2026-09-18T07:24:07.010843"
+      },
+      "dimensions": [
+        {
+          "dimension_id": "d_position",
+          "dimension_name": "定位与目标用户",
+          "items": [
+            {
+              "item_id": "i_001",
+              "content": "主要面向年营收 5000 万以下的中小企业",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010853"
+            },
+            {
+              "item_id": "i_001b",
+              "content": "核心价值主张是'让销售团队少填表、多成单'",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010855"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_function",
+          "dimension_name": "核心功能",
+          "items": [
+            {
+              "item_id": "i_002",
+              "content": "销售线索自动打分与分配",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010888"
+            },
+            {
+              "item_id": "i_003",
+              "content": "客户 360 度视图，整合邮件、通话记录",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010890"
+            },
+            {
+              "item_id": "i_004",
+              "content": "与钉钉、企业微信集成",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010892"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_pricing",
+          "dimension_name": "定价",
+          "items": [
+            {
+              "item_id": "i_005",
+              "content": "标准版 99 元/人/月，专业版 199 元/人/月，企业版 349 元/人/月",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010898"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_advantage",
+          "dimension_name": "优势",
+          "items": [
+            {
+              "item_id": "i_010",
+              "content": "上手简单，界面直观，适合没有 CRM 使用经验的团队；移动端体验较好；与国产办公工具集成度高",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010903"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_disadvantage",
+          "dimension_name": "劣势",
+          "items": [
+            {
+              "item_id": "i_012",
+              "content": "数据分析能力相对较弱，报表模板较少；大客户定制化支持有限",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010908"
+            }
+          ]
+        }
+      ],
+      "is_own_product": true
+    },
+    {
+      "product_id": "p_salesmax",
+      "product_name": "SalesMax Pro",
+      "company_name": "锐销科技",
+      "summary": {
+        "item_id": "i_s2",
+        "content": "锐销科技推出的企业级销售管理平台，成立于 2019 年，总部位于上海。",
+        "source_refs": [
+          {
+            "doc_id": "doc_0",
+            "file_name": "sample_competitive_materials.md"
+          }
+        ],
+        "status": "confirmed",
+        "confidence": "high",
+        "added_by": "expert_agent",
+        "added_at": "2026-09-18T07:24:07.010919"
+      },
+      "dimensions": [
+        {
+          "dimension_id": "d_position",
+          "dimension_name": "定位与目标用户",
+          "items": [
+            {
+              "item_id": "i_101",
+              "content": "专注于中大型企业的销售数字化转型，目标客户年营收超过 1 亿元、销售团队规模 50 人以上",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010921"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_function",
+          "dimension_name": "核心功能",
+          "items": [
+            {
+              "item_id": "i_102",
+              "content": "复杂的销售权限与区域管理、多层级审批流程、强大的 BI 报表与自定义仪表盘、与 SAP/Oracle ERP 对接、支持私有化部署",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010925"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_pricing",
+          "dimension_name": "定价",
+          "items": [
+            {
+              "item_id": "i_105",
+              "content": "不公开透明报价，项目制报价，起步价约每年 10 万元起",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "medium",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010930"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_advantage",
+          "dimension_name": "优势",
+          "items": [
+            {
+              "item_id": "i_110",
+              "content": "功能全面，适合复杂销售组织；数据分析能力强，支持自定义报表；支持私有化部署，满足大型企业合规要求",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010934"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_disadvantage",
+          "dimension_name": "劣势",
+          "items": [
+            {
+              "item_id": "i_111",
+              "content": "实施周期长，通常 2-3 个月；学习曲线陡峭，需要专门培训；价格较高，对中小企业不够友好",
+              "source_refs": [
+                {
+                  "doc_id": "doc_596554e2",
+                  "file_name": "sample_competitive_materials.md"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high",
+              "added_by": "expert_agent",
+              "added_at": "2026-09-18T07:24:07.010939"
+            }
+          ]
+        }
+      ],
+      "is_own_product": false
+    }
+  ],
+  "conflicts_and_clarifications": [],
+  "own_product_id": "p_cloudflow",
+  "analysis": {
+    "report_id": "ar_eb9b7b9c",
+    "created_at": "2026-09-18T07:24:07.011471",
+    "own_product_id": "p_cloudflow",
+    "comparison_matrix": {
+      "dimensions": [
+        {
+          "dimension_id": "cd_position",
+          "dimension_name": "目标用户与定位",
+          "description": "产品的目标客户群、市场定位与价值主张",
+          "original_dimension_names": [
+            "定位与目标用户"
+          ]
+        },
+        {
+          "dimension_id": "cd_function",
+          "dimension_name": "核心功能",
+          "description": "产品提供的核心功能与能力",
+          "original_dimension_names": [
+            "核心功能"
+          ]
+        },
+        {
+          "dimension_id": "cd_pricing",
+          "dimension_name": "定价策略",
+          "description": "产品的定价模式与价格水平",
+          "original_dimension_names": [
+            "定价"
+          ]
+        },
+        {
+          "dimension_id": "cd_advantage",
+          "dimension_name": "竞争优势",
+          "description": "产品相对于竞品的优势",
+          "original_dimension_names": [
+            "优势"
+          ]
+        },
+        {
+          "dimension_id": "cd_disadvantage",
+          "dimension_name": "竞争劣势",
+          "description": "产品相对于竞品的劣势",
+          "original_dimension_names": [
+            "劣势"
+          ]
+        }
+      ],
+      "cells": [
+        {
+          "cell_id": "cell_efbc289b",
+          "dimension_id": "cd_position",
+          "product_id": "p_cloudflow",
+          "summary": "主要面向年营收 5000 万以下的中小企业 核心价值主张是'让销售团队少填表、多成单'",
+          "fact_ids": [
+            "i_001",
+            "i_001b"
+          ],
+          "status_summary": "confirmed x2",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_38103eb8",
+          "dimension_id": "cd_function",
+          "product_id": "p_cloudflow",
+          "summary": "销售线索自动打分与分配 客户 360 度视图，整合邮件、通话记录 与钉钉、企业微信集成",
+          "fact_ids": [
+            "i_002",
+            "i_003",
+            "i_004"
+          ],
+          "status_summary": "confirmed x3",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_04337f72",
+          "dimension_id": "cd_pricing",
+          "product_id": "p_cloudflow",
+          "summary": "标准版 99 元/人/月，专业版 199 元/人/月，企业版 349 元/人/月",
+          "fact_ids": [
+            "i_005"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_5cc3a52d",
+          "dimension_id": "cd_advantage",
+          "product_id": "p_cloudflow",
+          "summary": "上手简单，界面直观，适合没有 CRM 使用经验的团队；移动端体验较好；与国产办公工具集成度高",
+          "fact_ids": [
+            "i_010"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_b0b87856",
+          "dimension_id": "cd_disadvantage",
+          "product_id": "p_cloudflow",
+          "summary": "数据分析能力相对较弱，报表模板较少；大客户定制化支持有限",
+          "fact_ids": [
+            "i_012"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_ac2bb423",
+          "dimension_id": "cd_position",
+          "product_id": "p_salesmax",
+          "summary": "专注于中大型企业的销售数字化转型，目标客户年营收超过 1 亿元、销售团队规模 50 人以上",
+          "fact_ids": [
+            "i_101"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_4e0ecf4e",
+          "dimension_id": "cd_function",
+          "product_id": "p_salesmax",
+          "summary": "复杂的销售权限与区域管理、多层级审批流程、强大的 BI 报表与自定义仪表盘、与 SAP/Oracle ERP 对接、支持私有化部署",
+          "fact_ids": [
+            "i_102"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_d2d0c3e5",
+          "dimension_id": "cd_pricing",
+          "product_id": "p_salesmax",
+          "summary": "不公开透明报价，项目制报价，起步价约每年 10 万元起",
+          "fact_ids": [
+            "i_105"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "medium"
+        },
+        {
+          "cell_id": "cell_979fa989",
+          "dimension_id": "cd_advantage",
+          "product_id": "p_salesmax",
+          "summary": "功能全面，适合复杂销售组织；数据分析能力强，支持自定义报表；支持私有化部署，满足大型企业合规要求",
+          "fact_ids": [
+            "i_110"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        },
+        {
+          "cell_id": "cell_bb983e54",
+          "dimension_id": "cd_disadvantage",
+          "product_id": "p_salesmax",
+          "summary": "实施周期长，通常 2-3 个月；学习曲线陡峭，需要专门培训；价格较高，对中小企业不够友好",
+          "fact_ids": [
+            "i_111"
+          ],
+          "status_summary": "confirmed x1",
+          "confidence": "high"
+        }
+      ],
+      "product_ids": [
+        "p_cloudflow",
+        "p_salesmax"
+      ]
+    },
+    "product_scores": [
+      {
+        "product_id": "p_salesmax",
+        "product_name": "SalesMax Pro",
+        "total_score": 7.62,
+        "rank": 1,
+        "criterion_scores": [
+          {
+            "criterion_id": "function",
+            "score": 9.0,
+            "rationale": "功能全面，适合复杂销售组织",
+            "fact_ids": [
+              "i_102"
+            ]
+          },
+          {
+            "criterion_id": "pricing",
+            "score": 5.0,
+            "rationale": "价格不透明，起步价高",
+            "fact_ids": [
+              "i_105"
+            ]
+          },
+          {
+            "criterion_id": "usability",
+            "score": 5.5,
+            "rationale": "学习曲线陡峭",
+            "fact_ids": [
+              "i_111"
+            ]
+          },
+          {
+            "criterion_id": "analytics",
+            "score": 9.0,
+            "rationale": "BI能力强",
+            "fact_ids": [
+              "i_103"
+            ]
+          },
+          {
+            "criterion_id": "integration",
+            "score": 8.5,
+            "rationale": "与SAP/Oracle对接",
+            "fact_ids": [
+              "i_104"
+            ]
+          },
+          {
+            "criterion_id": "deployment",
+            "score": 9.0,
+            "rationale": "支持私有化部署",
+            "fact_ids": [
+              "i_106"
+            ]
+          },
+          {
+            "criterion_id": "market_fit",
+            "score": 8.5,
+            "rationale": "中大型企业匹配度高",
+            "fact_ids": [
+              "i_101"
+            ]
+          },
+          {
+            "criterion_id": "ai_auto",
+            "score": 6.0,
+            "rationale": "AI能力有潜力",
+            "fact_ids": []
+          }
+        ],
+        "overall_rationale": "适合大型企业，功能深度强但价格高、实施周期长。"
+      },
+      {
+        "product_id": "p_cloudflow",
+        "product_name": "CloudFlow CRM",
+        "total_score": 7.45,
+        "rank": 2,
+        "criterion_scores": [
+          {
+            "criterion_id": "function",
+            "score": 7.5,
+            "rationale": "功能覆盖中小企业场景，但深度有限",
+            "fact_ids": [
+              "i_002"
+            ]
+          },
+          {
+            "criterion_id": "pricing",
+            "score": 8.5,
+            "rationale": "价格透明，性价比高",
+            "fact_ids": [
+              "i_005"
+            ]
+          },
+          {
+            "criterion_id": "usability",
+            "score": 9.0,
+            "rationale": "上手简单，移动端体验好",
+            "fact_ids": [
+              "i_010"
+            ]
+          },
+          {
+            "criterion_id": "analytics",
+            "score": 5.5,
+            "rationale": "数据分析能力较弱",
+            "fact_ids": [
+              "i_012"
+            ]
+          },
+          {
+            "criterion_id": "integration",
+            "score": 8.0,
+            "rationale": "与国产办公工具集成度高",
+            "fact_ids": [
+              "i_004"
+            ]
+          },
+          {
+            "criterion_id": "deployment",
+            "score": 6.5,
+            "rationale": "仅SaaS，无私有化",
+            "fact_ids": []
+          },
+          {
+            "criterion_id": "market_fit",
+            "score": 8.0,
+            "rationale": "中小企业匹配度高",
+            "fact_ids": [
+              "i_001"
+            ]
+          },
+          {
+            "criterion_id": "ai_auto",
+            "score": 5.0,
+            "rationale": "AI能力未重点体现",
+            "fact_ids": []
+          }
+        ],
+        "overall_rationale": "适合中小企业，易用但功能深度和数据分析不足。"
+      }
+    ],
+    "swot": [
+      {
+        "item_id": "swot_7b4bcd",
+        "category": "strength",
+        "content": "CloudFlow CRM 上手简单、移动端体验好",
+        "related_product_ids": [
+          "p_cloudflow"
+        ],
+        "dimension_id": "cd_advantage",
+        "fact_ids": [
+          "i_010"
+        ]
+      },
+      {
+        "item_id": "swot_dc4a23",
+        "category": "weakness",
+        "content": "CloudFlow CRM 数据分析能力弱、大客户定制有限",
+        "related_product_ids": [
+          "p_cloudflow"
+        ],
+        "dimension_id": "cd_disadvantage",
+        "fact_ids": [
+          "i_012"
+        ]
+      },
+      {
+        "item_id": "swot_92b681",
+        "category": "opportunity",
+        "content": "AI 辅助销售预测将成为重点竞争方向",
+        "related_product_ids": [
+          "p_cloudflow",
+          "p_salesmax"
+        ],
+        "dimension_id": "cd_function",
+        "fact_ids": []
+      },
+      {
+        "item_id": "swot_f0f84f",
+        "category": "threat",
+        "content": "SalesMax Pro 在大型企业市场竞争力强",
+        "related_product_ids": [
+          "p_salesmax"
+        ],
+        "dimension_id": "cd_function",
+        "fact_ids": [
+          "i_102"
+        ]
+      }
+    ],
+    "gaps": [
+      {
+        "item_id": "gap_4f000b",
+        "dimension_id": "cd_analytics",
+        "description": "CloudFlow CRM 数据分析能力弱于 SalesMax Pro",
+        "impact": "high",
+        "own_product_id": "p_cloudflow",
+        "compared_to_product_ids": [
+          "p_salesmax"
+        ],
+        "fact_ids": [
+          "i_012",
+          "i_103"
+        ]
+      },
+      {
+        "item_id": "gap_669314",
+        "dimension_id": "cd_deployment",
+        "description": "CloudFlow CRM 不支持私有化部署",
+        "impact": "medium",
+        "own_product_id": "p_cloudflow",
+        "compared_to_product_ids": [
+          "p_salesmax"
+        ],
+        "fact_ids": [
+          "i_106"
+        ]
+      }
+    ],
+    "recommendations": [
+      {
+        "item_id": "rec_0d5d7c",
+        "priority": "high",
+        "title": "增强 BI 与数据分析能力",
+        "description": "增加自定义报表和预测仪表盘，缩小与 SalesMax Pro 的差距",
+        "rationale": "数据分析是中大型企业核心需求",
+        "related_gap_ids": [
+          "g_001"
+        ],
+        "related_product_ids": [
+          "p_cloudflow"
+        ],
+        "dimension_id": "cd_analytics",
+        "expected_impact": "提升大客户签约率"
+      },
+      {
+        "item_id": "rec_1a6b3c",
+        "priority": "medium",
+        "title": "探索私有化部署方案",
+        "description": "推出专属部署版本满足合规需求",
+        "rationale": "大型企业看重私有化",
+        "related_gap_ids": [
+          "g_002"
+        ],
+        "related_product_ids": [
+          "p_cloudflow"
+        ],
+        "dimension_id": "cd_deployment",
+        "expected_impact": "拓展中大型企业市场"
+      }
+    ]
+  },
+  "report": {
+    "report_id": "rep_0dc8e513",
+    "created_at": "2026-09-18T07:24:07.011544",
+    "title": "CRM 竞品分析报告",
+    "executive_summary": "CloudFlow CRM 在中小企业市场具备易用性和性价比优势，但在功能深度、数据分析和大客户支持方面落后于 SalesMax Pro。",
+    "market_overview": "CRM 市场呈现明显分层：中小企业看重易用与性价比，大型企业看重功能深度与私有化部署。",
+    "product_positions": [
+      {
+        "product_id": "p_cloudflow",
+        "product_name": "CloudFlow CRM",
+        "positioning": "面向中小企业的轻量化 CRM，强调易用和国产集成",
+        "key_strengths": [
+          "上手简单",
+          "移动端体验好",
+          "与国产办公工具集成"
+        ],
+        "key_weaknesses": [
+          "数据分析弱",
+          "大客户定制有限",
+          "无私有化部署"
+        ]
+      },
+      {
+        "product_id": "p_salesmax",
+        "product_name": "SalesMax Pro",
+        "positioning": "面向中大型企业的企业级销售管理平台",
+        "key_strengths": [
+          "功能全面",
+          "BI 能力强",
+          "支持私有化"
+        ],
+        "key_weaknesses": [
+          "价格高",
+          "实施周期长",
+          "学习曲线陡峭"
+        ]
+      }
+    ],
+    "key_findings": [
+      {
+        "finding_id": "f_001",
+        "title": "市场分层明显",
+        "detail": "两个产品分别占据中小企业和大型企业市场，定位差异显著",
+        "evidence": [
+          "CloudFlow 面向年营收5000万以下",
+          "SalesMax 面向年营收1亿以上"
+        ],
+        "related_product_ids": [
+          "p_cloudflow",
+          "p_salesmax"
+        ],
+        "related_dimension_ids": [
+          "cd_position"
+        ]
+      }
+    ],
+    "swot_summary": "优势：CloudFlow CRM 上手简单、移动端体验好\n劣势：CloudFlow CRM 数据分析能力弱、大客户定制有限\n机会：AI 辅助销售预测将成为重点竞争方向\n威胁：SalesMax Pro 在大型企业市场竞争力强",
+    "gap_summary": "- [high] CloudFlow CRM 数据分析能力弱于 SalesMax Pro\n- [medium] CloudFlow CRM 不支持私有化部署",
+    "strategic_recommendations": [
+      "增强 BI 与数据分析能力：增加自定义报表和预测仪表盘，缩小与 SalesMax Pro 的差距",
+      "探索私有化部署方案：推出专属部署版本满足合规需求"
+    ],
+    "risk_and_conflicts": "主要信息来自单篇示例文档，SalesMax Pro 价格为行业信息，需进一步核实。",
+    "next_steps": [
+      "调研大客户的 BI 需求优先级",
+      "评估私有化部署成本"
+    ],
+    "full_markdown": "# CRM 竞品分析报告\n\n## 执行摘要\nCloudFlow CRM 在中小企业市场具备易用性和性价比优势..."
+  }
+}

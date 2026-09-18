@@ -1,0 +1,105 @@
+{
+  "collection_name": "competitive_kb",
+  "enable_dynamic_field": false,
+  "fields": [
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": true,
+      "max_capacity": null,
+      "max_length": 64,
+      "name": "id",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 64,
+      "name": "doc_id",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 512,
+      "name": "file_name",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 8192,
+      "name": "chunk_text",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 32,
+      "name": "chunk_type",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 256,
+      "name": "product_name",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": null,
+      "dtype": "varchar",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": 256,
+      "name": "dimension_name",
+      "nullable": false
+    },
+    {
+      "auto_id": false,
+      "default_value": null,
+      "dim": 512,
+      "dtype": "float_vector",
+      "element_type": null,
+      "is_primary": false,
+      "max_capacity": null,
+      "max_length": null,
+      "name": "embedding",
+      "nullable": false
+    }
+  ],
+  "properties": {},
+  "schema_format_version": 2,
+  "version": 1
+}
