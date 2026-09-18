@@ -1,0 +1,253 @@
+```json
+{
+  "products": [
+    {
+      "product_id": "p_001",
+      "product_name": "方舟 Agent Plan",
+      "company_name": "火山引擎（字节跳动旗下）",
+      "summary": {
+        "item_id": "i_001",
+        "content": "方舟 Agent Plan 是火山引擎于 2026 年 5 月 11 日发布的订阅式全模态大模型服务套餐，定位为“一站式 Agent 能力包”，面向个人开发者、Agent 应用开发者及企业团队。",
+        "source_refs": [
+          {
+            "doc_id": "doc_728e80cd",
+            "file_name": "sample_competitive_materials.md",
+            "page_or_section": "一、产品概览 / 二、核心定位与价值主张",
+            "quote": "产品名称：方舟 Agent Plan...发布时间：2026年5月11日...产品定位：业界首个面向 Agent 场景的订阅式全模态大模型服务套餐包"
+          }
+        ],
+        "status": "confirmed",
+        "confidence": "high"
+      },
+      "dimensions": [
+        {
+          "dimension_id": "d_001",
+          "dimension_name": "产品概览",
+          "items": [
+            {
+              "item_id": "i_002",
+              "content": "发布时间为 2026 年 5 月 11 日。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "一、产品概览",
+                  "quote": "发布时间：2026年5月11日"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_003",
+              "content": "定位为业界首个面向 Agent 场景的订阅式全模态大模型服务套餐包，也是 Coding Plan 的升级版。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "一、产品概览",
+                  "quote": "产品定位：业界首个面向 Agent 场景的订阅式全模态大模型服务套餐包（Coding Plan 升级版）"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_004",
+              "content": "目标用户包括个人开发者、Agent 应用开发者与企业团队。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "一、产品概览",
+                  "quote": "目标用户：个人开发者、Agent 应用开发者、企业团队"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_005",
+              "content": "版本形态分为个人版和企业版，企业版 5 席位起售，官方入口为 ark.volcengine.com。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "一、产品概览",
+                  "quote": "版本形态：个人版 + 企业版（企业版 5 席位起售）...官方入口：ark.volcengine.com"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_002",
+          "dimension_name": "核心价值主张",
+          "items": [
+            {
+              "item_id": "i_006",
+              "content": "核心理念是“一站式 Agent 能力包”，将文本、代码、图像、视频、语音、联网搜索等多模态能力打包为订阅制服务。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "二、核心定位与价值主张",
+                  "quote": "核心理念：“一站式 Agent 能力包”，将文本、代码、图像、视频、语音、联网搜索等多模态能力打包，以订阅制方式提供"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_007",
+              "content": "核心卖点之一是全模态模型 + Harness 升级，一个套餐覆盖文本生成、图像生成、视频生成、向量化、语音合成/识别、联网搜索。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "二、核心定位与价值主张",
+                  "quote": "全模态模型 + Harness 升级：一个套餐覆盖文本生成、图像生成、视频生成、向量化、语音合成/识别、联网搜索"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_008",
+              "content": "强调量大管饱、性价比高，提供四档套餐，相比按量后付费享受更高折扣。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "二、核心定位与价值主张",
+                  "quote": "量大管饱、性价比高：四档套餐灵活选择，相比按量后付费享受更高折扣"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_009",
+              "content": "深度兼容 Agent 框架与 AI 编程工具，原生支持 Cursor、TRAE、Cline 等主流 AI 编程工具接入。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "二、核心定位与价值主张 / 六、工具生态兼容",
+                  "quote": "深度兼容 Agent 框架与 AI 编程工具：原生支持 Cursor、TRAE、Cline 等主流 AI 编程工具接入"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_003",
+          "dimension_name": "个人版套餐与定价",
+          "items": [
+            {
+              "item_id": "i_010",
+              "content": "个人版采用 AFP（Agent Fuel Points，Agent 燃料值）积分制计费，不同模型按不同抵扣系数消耗积分，每月积分随套餐重置。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "计费方式：采用 AFP（Agent Fuel Points，Agent 燃料值）积分制，不同模型按不同抵扣系数消耗积分。每月积分随套餐重置"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_011",
+              "content": "Small 套餐原价 40 元/月，限时特惠 9.9 元/月（2.5 折），连续包季 116.4 元/季（9.7 折），连续包年 9.5 折。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "Small 套餐...原价：40元/月...限时特惠：9.9元/月（2.5折）...连续包季：116.4元/季（9.7折）...连续包年：9.5折"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_012",
+              "content": "Medium 套餐原价 200 元/月，限时特惠 49.9 元/月（2.5 折），连续包季/包年分别为 9.7 折与 9.5 折。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "Medium 套餐...原价：200元/月...限时特惠：49.9元/月（2.5折）...连续包季：9.7折...连续包年：9.5折"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_013",
+              "content": "Large 套餐原价 500 元/月，连续包季 9.7 折，连续包年 9.5 折。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "Large 套餐...原价：500元/月...连续包季：9.7折...连续包年：9.5折"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_014",
+              "content": "Max 套餐原价约 1000 元/月，连续包季 9.7 折，连续包年 9.5 折。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "Max 套餐...原价：约1000元/月...连续包季：9.7折...连续包年：9.5折"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            },
+            {
+              "item_id": "i_015",
+              "content": "Small/Medium 套餐不支持视频生成模型，推荐使用 Large 及以上套餐。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "三、套餐与定价（个人版）",
+                  "quote": "注：Small/Medium 套餐不支持视频生成模型，推荐 Large 及以上"
+                }
+              ],
+              "status": "confirmed",
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "dimension_id": "d_004",
+          "dimension_name": "支持模型矩阵",
+          "items": [
+            {
+              "item_id": "i_016",
+              "content": "语言/代码模型涵盖豆包（Seed 2.0、Seed-Evolving 等）、智谱 GLM（GLM-5.2、GLM-5.3 系列含 Flash）、DeepSeek（V4 Pro、V4 Flash、V4.1 Flash）、Kimi（K2、K3 部分）以及 MiniMax M3。",
+              "source_refs": [
+                {
+                  "doc_id": "doc_728e80cd",
+                  "file_name": "sample_competitive_materials.md",
+                  "page_or_section": "四、支持模型矩阵",
+                  "quote": "[语言/代码模型]...豆包 (Doubao)：Seed 2.0、Seed-Evolving 等...智谱 GLM：GLM-5.2、GLM-5.3 系列（含 Flash）...DeepSeek：DeepSeek-V4 Pro、V4 Flash、V4.1 Flash...Kimi (月之暗面)：Kimi-K2、Kimi-K3（部分）...MiniMax：MiniMax M3"
+                }
+              ],
+              "status": "confirmed",
+              "confidence":

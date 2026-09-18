@@ -181,7 +181,7 @@ class AnalysisAgent:
             return dims, mapping
 
         prompt = self._build_alignment_prompt(dim_inputs)
-        response = self._call_llm(prompt, max_tokens=4000)
+        response = self._call_llm(prompt, max_tokens=8000)
 
         try:
             data = extract_json_block(response)

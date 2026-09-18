@@ -99,6 +99,108 @@ Return a single JSON object matching this structure exactly:
 
 If you find conflicting information about the same product and dimension, add an entry to `conflicts_and_clarifications` with `status` set to `conflict` on the related items.
 
+## Length Guidelines
+
+To keep the output within the model's token budget:
+- Limit each product to at most 8 dimensions.
+- Limit each dimension to at most 5 facts.
+- Keep each `quote` under 80 characters.
+- Summarize facts concisely; do not copy long passages.
+
+## Source Documents
+
+{documents_text}
+
+Return only the JSON object, no additional explanation.
+"""
+
+PRODUCT_IDENTIFICATION_PROMPT = """You are a competitive intelligence analyst. Read the source documents below and identify every distinct competitive product mentioned.
+
+## Source Documents
+
+{documents_text}
+
+## Output Format
+
+Return a JSON array of objects. Each object must contain:
+- `product_name`: the exact product name as it appears in the documents
+- `company_name`: the company name, or empty string if unknown
+
+Example:
+
+```json
+[
+  {"product_name": "Product A", "company_name": "Company X"},
+  {"product_name": "Product B", "company_name": ""}
+]
+```
+
+Return only the JSON array, no additional explanation.
+"""
+
+SINGLE_PRODUCT_EXTRACTION_PROMPT = """You are a "Competitive Product Expert Agent". Your job is to read the provided source documents and build a structured profile for ONE specific product: **{product_name}**.
+
+## Core Rules
+
+1. **Base everything on the documents only.** Do not add information from your own knowledge.
+2. **Do not use pre-defined dimensions.** Discover dimensions naturally from the text.
+3. **Each fact must have a source reference.** Use `doc_id` and `file_name` from the document list below.
+4. **Summarize facts in your own words**, but keep them grounded in the document. Do not copy long passages.
+5. **Use status values correctly:**
+   - `confirmed`: the fact is clearly stated in the documents.
+   - `pending_verification`: the fact is mentioned but unclear or incomplete.
+   - `not_mentioned`: the dimension is being noted as absent from the documents.
+   - `conflict`: the documents contradict each other.
+6. **Confidence levels:** `high`, `medium`, or `low`.
+7. If the product is only mentioned briefly, still create a profile with a summary and minimal dimensions.
+
+## Length Guidelines
+
+To keep the output within the model's token budget:
+- Limit the product to at most 8 dimensions.
+- Limit each dimension to at most 5 facts.
+- Keep each `quote` under 80 characters.
+- Summarize facts concisely; do not copy long passages.
+
+## Output Format
+
+Return a single JSON object matching this structure exactly:
+
+```json
+{
+  "product": {
+    "product_id": "p_001",
+    "product_name": "{product_name}",
+    "company_name": "Company Name (if known)",
+    "summary": {
+      "item_id": "i_001",
+      "content": "One or two sentence summary from the documents.",
+      "source_refs": [{"doc_id": "doc_abc123", "file_name": "report.pdf", "page_or_section": "Page 3", "quote": "optional short quote"}],
+      "status": "confirmed",
+      "confidence": "high"
+    },
+    "dimensions": [
+      {
+        "dimension_id": "d_001",
+        "dimension_name": "Pricing Strategy",
+        "items": [
+          {
+            "item_id": "i_002",
+            "content": "Product offers three tiers starting at $29/month.",
+            "source_refs": [{"doc_id": "doc_abc123", "file_name": "report.pdf", "page_or_section": "Page 5", "quote": "Pricing starts at $29 per month."}],
+            "status": "confirmed",
+            "confidence": "high"
+          }
+        ]
+      }
+    ]
+  },
+  "conflicts_and_clarifications": []
+}
+```
+
+If you find conflicting information about this product and dimension, add an entry to `conflicts_and_clarifications` with `status` set to `conflict` on the related items.
+
 ## Source Documents
 
 {documents_text}
@@ -143,9 +245,15 @@ class ExpertAgent:
         kb_id = kb_id or f"kb_{uuid.uuid4().hex[:8]}"
         now = datetime.now().isoformat()
 
-        prompt = self._create_extraction_prompt(documents)
-        response = self._call_llm(prompt)
-        extracted = self._parse_response(response)
+        try:
+            extracted = self._extract_all_products(documents)
+        except ValueError as exc:
+            print(f"   ⚠️ 一次性抽取失败：{exc}")
+            print("   切换到按产品分多次抽取...")
+            extracted = self._extract_products_chunked(documents)
+
+        if not extracted or not extracted.get("products"):
+            raise ValueError("No products could be extracted from the documents")
 
         source_docs = [
             SourceDocument(
@@ -231,22 +339,100 @@ class ExpertAgent:
     def _create_extraction_prompt(
         self, documents: list[ParsedDocument]
     ) -> str:
-        doc_sections = []
-        for doc in documents:
-            header = f"--- Document: {doc.file_name} (doc_id: {doc.doc_id}, type: {doc.file_type}) ---"
-            # Use chunks if text is very long; otherwise full text
-            text = doc.text if len(doc.text) < 120_000 else "\n\n".join(doc.chunks[:5])
-            doc_sections.append(f"{header}\n{text}")
-
-        documents_text = "\n\n".join(doc_sections)
+        documents_text = self._documents_text(documents)
         return EXTRACTION_PROMPT.replace("{documents_text}", documents_text)
 
     def _call_llm(self, prompt: str) -> str:
         return self.client.chat_completion(
             prompt=prompt,
             system="You are a careful competitive intelligence analyst. You only use facts from the provided documents.",
-            max_tokens=8000,
+            max_tokens=128000,
         )
+
+    def _extract_all_products(
+        self, documents: list[ParsedDocument]
+    ) -> dict[str, Any]:
+        """Try to extract all product profiles in a single LLM call."""
+        prompt = self._create_extraction_prompt(documents)
+        response = self._call_llm(prompt)
+        return self._parse_response(response)
+
+    def _documents_text(self, documents: list[ParsedDocument]) -> str:
+        """Build the source documents section used in prompts."""
+        doc_sections = []
+        for doc in documents:
+            header = (
+                f"--- Document: {doc.file_name} "
+                f"(doc_id: {doc.doc_id}, type: {doc.file_type}) ---"
+            )
+            text = doc.text if len(doc.text) < 120_000 else "\n\n".join(doc.chunks[:5])
+            doc_sections.append(f"{header}\n{text}")
+        return "\n\n".join(doc_sections)
+
+    def _identify_products(
+        self, documents: list[ParsedDocument]
+    ) -> list[dict[str, Any]]:
+        """Ask the LLM to list the distinct products mentioned in the documents."""
+        documents_text = self._documents_text(documents)
+        prompt = PRODUCT_IDENTIFICATION_PROMPT.replace(
+            "{documents_text}", documents_text
+        )
+        response = self._call_llm(prompt)
+        data = self._parse_response(response)
+
+        if isinstance(data, list):
+            return data
+        if isinstance(data, dict) and "products" in data:
+            return data["products"]
+
+        raise ValueError(
+            f"Product identification returned unexpected structure: {type(data)}"
+        )
+
+    def _extract_single_product(
+        self, product_name: str, documents: list[ParsedDocument]
+    ) -> dict[str, Any]:
+        """Extract a profile for a single named product."""
+        documents_text = self._documents_text(documents)
+        prompt = (
+            SINGLE_PRODUCT_EXTRACTION_PROMPT.replace("{product_name}", product_name)
+            .replace("{product_name}", product_name)
+            .replace("{documents_text}", documents_text)
+        )
+        response = self._call_llm(prompt)
+        data = self._parse_response(response)
+        return data.get("product", data)
+
+    def _extract_products_chunked(
+        self, documents: list[ParsedDocument]
+    ) -> dict[str, Any]:
+        """
+        Fallback extraction: identify products first, then extract each product
+        in its own LLM call. This keeps each response small and avoids the
+        provider's output token ceiling.
+        """
+        print("   正在识别文档中的产品...")
+        product_list = self._identify_products(documents)
+        print(f"   识别到 {len(product_list)} 个产品，逐个抽取...")
+
+        products: list[dict[str, Any]] = []
+        conflicts: list[dict[str, Any]] = []
+        for entry in product_list:
+            product_name = entry.get("product_name", "").strip()
+            if not product_name:
+                continue
+            print(f"      抽取产品：{product_name}")
+            try:
+                profile = self._extract_single_product(product_name, documents)
+            except ValueError as exc:
+                print(f"      ⚠️ 抽取 {product_name} 失败：{exc}")
+                continue
+
+            if isinstance(profile, dict):
+                products.append(profile)
+                conflicts.extend(profile.get("conflicts_and_clarifications", []))
+
+        return {"products": products, "conflicts_and_clarifications": conflicts}
 
     def _parse_response(self, response: str) -> dict[str, Any]:
         """Extract JSON from the LLM response."""

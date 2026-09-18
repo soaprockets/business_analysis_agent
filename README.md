@@ -11,12 +11,13 @@
   - 人类可读的 Markdown 报告
 - **来源可追溯**：每条知识点都标注来源文件、页码/段落和引用。
 - **事实状态管理**：支持 `confirmed`、`pending_verification`、`external_supplement`、`not_mentioned`、`conflict` 等状态。
-- **网页搜索补充**：搜索 Agent 通过 DuckDuckGo 搜索竞品信息，提取结构化事实。
+- **网页搜索补充**：搜索 Agent 默认通过 Tavily 搜索竞品信息（支持切换 DuckDuckGo 或离线 mock），提取结构化事实。
 - **反向验证**：专家 Agent 会回到原始资料中验证搜索结果，确认、标注外部补充或记录冲突。
 - **分析 Agent**：从知识库中对比自有产品与竞品，生成对比矩阵、量化评分、SWOT、差距分析与行动建议。
 - **人类在环路中**：遇到信息冲突时，记录到 `conflicts_and_clarifications` 等待人类专家裁决。
 - **Agent 执行跟踪**：使用 `--trace` 输出每个 Agent 的中间 Markdown 产物，便于审计与验证。
 - **多 LLM Provider 支持**：兼容 Anthropic、OpenAI 兼容接口以及火山方舟 Agent Plan。
+- **构建兜底**：`ExpertAgent` 先尝试一次性抽取全部产品；如果输出被截断导致 JSON 解析失败，会自动降级为“按产品逐个抽取”，避免触碰到模型的输出 token 上限。
 
 ## 快速开始
 
@@ -68,6 +69,11 @@ cp .env.example .env
   VOLCANO_AGENT_MODEL=ark-code-latest
   ```
   > Agent Plan 使用与普通 Ark API 不同的专属 Key，具体可在火山方舟控制台“API Key 管理”中创建。
+  >
+  > 代码中所有 LLM 调用的 `max_tokens` 默认请求 **128000**，但不同 provider 有各自的输出上限，超出会被自动裁剪：
+  > - `volcano-agent-plan`：使用 `max_completion_tokens`，上限 **32768**（ark-code-latest 最大输出）。
+  > - `anthropic`：上限 **8192**。
+  > - `openai`：保留 128000，由具体模型决定实际上限。
 
 当前项目已默认配置为字节跳动火山方舟（Agent Plan 模式）。
 
@@ -91,22 +97,24 @@ output/
   kb_xxxxxx.md
 ```
 
+> **抽取兜底**：`build` 默认尝试一次性提取所有产品。如果返回的 JSON 因输出 token 上限被截断，会自动切换为“先识别产品清单，再逐个产品抽取”。你不需要额外参数。
+
 ### 4. 通过网页搜索补充知识库
 
-默认使用 DuckDuckGo（免费，无需 API Key）：
-
-```bash
-python -m src.main search output/kb_xxxxxx.json "CloudFlow CRM" "CloudFlow CRM 客户评价"
-```
-
-如果 DuckDuckGo 在你的网络环境下不稳定，可以使用 Tavily（更稳定，需要 API Key）：
+默认使用 Tavily（更稳定，需要 API Key）：
 
 ```bash
 # 在 .env 中配置 TAVILY_API_KEY
-python -m src.main search output/kb_xxxxxx.json "CloudFlow CRM" "CloudFlow CRM 客户评价" --search-backend tavily
+python -m src.main search output/kb_xxxxxx.json "CloudFlow CRM" "CloudFlow CRM 客户评价"
 ```
 
-仅用于测试流程，不发起真实搜索：
+如果不需要 API Key，可以使用 DuckDuckGo（免费，但部分网络环境不稳定）：
+
+```bash
+python -m src.main search output/kb_xxxxxx.json "CloudFlow CRM" "CloudFlow CRM 客户评价" --search-backend duckduckgo
+```
+
+仅用于测试流程，不发起真实搜索（离线模式，直接返回空结果）：
 
 ```bash
 python -m src.main search output/kb_xxxxxx.json "CloudFlow CRM" "CloudFlow CRM 客户评价" --search-backend mock
@@ -246,7 +254,8 @@ Agent 的 prompt 明确要求：
 
 ## 注意事项
 
-- 当前版本适用于单篇或少量文档。超长文档会自动按段落分块处理，但建议后续优化为分段提取再合并的策略。
-- 网页搜索使用 DuckDuckGo，无需额外 API Key，但在部分网络环境下可能不稳定。
+- 当前版本适用于单篇或少量文档。超长文档会自动按段落分块处理；`build` 阶段如果一次性输出超过模型上限，会自动降级为按产品逐个抽取。
+- 网页搜索默认使用 **Tavily**（需要 `TAVILY_API_KEY`），更稳定；也可切换为 DuckDuckGo（免费，部分网络环境不稳定）或 `mock`（离线测试，不发起真实搜索）。
 - 输出质量取决于输入资料和搜索结果页面的清晰度。
 - `.env` 文件用于存放真实 API Key，已被 `.gitignore` 忽略；`.env.example` 是模板，不要写入真实 Key。
+- 所有 LLM 调用默认请求 `max_tokens=128000`，但 provider 会按自身上限截断（火山 Agent Plan 为 32768，Anthropic 为 8192），代码里会自动裁剪并打印提示。

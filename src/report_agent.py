@@ -40,7 +40,7 @@ class ReportAgent:
         response = self.client.chat_completion(
             prompt=prompt,
             system="You are a senior product strategy consultant. Synthesize the provided data into a clear, structured, and actionable competitive analysis report in Chinese.",
-            max_tokens=8000,
+            max_tokens=128000,
         )
 
         try:

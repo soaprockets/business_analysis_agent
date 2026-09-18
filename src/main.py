@@ -369,9 +369,9 @@ def main():
     )
     search_parser.add_argument(
         "--search-backend",
-        default="duckduckgo",
+        default="tavily",
         choices=["duckduckgo", "tavily", "mock"],
-        help="搜索引擎后端，默认 duckduckgo（可选 tavily/mock）",
+        help="搜索引擎后端，默认 tavily（duckduckgo 免费但可能不稳定；mock 为离线测试模式，不发起真实搜索）",
     )
     search_parser.add_argument(
         "--trace",

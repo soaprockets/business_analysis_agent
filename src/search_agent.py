@@ -33,7 +33,11 @@ class SearchAgent:
         api_key: str | None = None,
         max_results: int = 5,
         fetch_timeout: int = 10,
-        backend: str = "duckduckgo",
+        backend: str = "tavily",
+        # backend options:
+        #   - "tavily": real web search via Tavily API (requires TAVILY_API_KEY)
+        #   - "duckduckgo": real web search via DuckDuckGo (free, no API key)
+        #   - "mock": offline test mode, returns an empty result list, no network call
     ):
         from .llm_client import LLMClient
 
@@ -127,6 +131,7 @@ class SearchAgent:
         if self.backend == "tavily":
             return self._search_tavily(query)
         if self.backend == "mock":
+            # Offline test mode: does not perform any real web search.
             return []
         raise ValueError(f"Unsupported search backend: {self.backend}")
 
@@ -236,7 +241,7 @@ class SearchAgent:
             print(f"   ⚠️ 无法获取页面 {url}: {exc}")
             return ""
 
-    def _call_llm(self, prompt: str, max_tokens: int = 4000) -> str:
+    def _call_llm(self, prompt: str, max_tokens: int = 128000) -> str:
         return self.client.chat_completion(
             prompt=prompt,
             system="You are a careful web research assistant. Only use facts from the provided page.",
@@ -266,7 +271,7 @@ class SearchAgent:
     ) -> dict[str, list[FactItem]]:
         """Extract facts from all result pages in a single LLM call."""
         prompt = self._build_extraction_prompt(query, pages, context)
-        response = self._call_llm(prompt, max_tokens=8000)
+        response = self._call_llm(prompt, max_tokens=128000)
         return self._parse_facts(response, pages)
 
     def _build_extraction_prompt(
